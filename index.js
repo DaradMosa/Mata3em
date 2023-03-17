@@ -1,3 +1,4 @@
+let x;
 let cul = [name =0, taste = 0, price = 0, ratio = 0];
 function sortTable(column){
     console.log(column)
