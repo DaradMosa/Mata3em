@@ -1,5 +1,5 @@
-let x;
 let cul = [name =0, taste = 0, price = 0, ratio = 0];
+
 function sortTable(column){
     console.log(column)
     for(let i = 0;i<cul.length;i++){
@@ -16,6 +16,7 @@ function sortTable(column){
     }
     cul[column]++;
 }
+
 function sortasc(column){
     let table = document.querySelector("#mytable");
     let rows = Array.from(table.querySelectorAll("tr"));
@@ -32,6 +33,7 @@ function sortasc(column){
     head.appendChild(firstRow);
     sortedRows.forEach(row => bo.appendChild(row));
 }
+
 function sortdes(column){
     let table = document.querySelector("#mytable");
     let rows = Array.from(table.querySelectorAll("tr"));
@@ -48,3 +50,28 @@ function sortdes(column){
     head.appendChild(firstRow);
     sortedRows.forEach(row => bo.appendChild(row));
 }
+
+let close_map = document.querySelector(".closeModule")
+let module = document.getElementById("mymodule");
+
+function mapShow(index){
+    index++;
+    let module_conent = document.querySelector(".module-content");
+    let frames = Array.from(module_conent.children);
+    for (let i = 1; i < frames.length; i++) {
+        module_conent.children[i].style.display = "none";
+    }
+    module.style.display = "block";
+    let show = module_conent.children[index];
+    show.style.display = "block";
+}
+
+close_map.onclick = () => {
+    module.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == module) {
+      module.style.display = "none";
+    }
+  }
