@@ -11,17 +11,32 @@ body{
     flex-direction: column;
     min-height: 100%;
     overflow-x: hidden;
-
-
 }
 .header{
 
     width: 100%;
     height: 117px;
     display: block;
-    
+}
+.header-border{
     border-bottom: solid #2E3840 1px;
-
+    animation: leftright 0.7s ease;
+}
+@keyframes leftright {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes rightleft {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
 }
 .inner_header{
     width: 95%;
@@ -34,6 +49,8 @@ body{
     height: 100%; 
     display: table;
     float: left;
+    animation: leftright 0.7s ease;
+
 }
 .logo h1{
     color: #2E3840;
@@ -48,8 +65,11 @@ body{
     font-weight: 400;
 }
 .navigation{
-    float: right;
+    display: flex;
+    justify-content: right;
     height: 100%;
+    animation: rightleft 0.7s ease;
+
 }
 .header a:link{
     color: #2E3840;
@@ -70,7 +90,8 @@ body{
     text-decoration: none;
     transition: margin-top 0s;
     transition: all 0.3s;
-    
+    transition-delay: 0.1s;
+
 }
 .navigation a:last-child{
     background-color: #4E6E81;
@@ -86,6 +107,21 @@ body{
     
     transition: all 0.3s;
 }
+.navigation a:last-child:hover{
+    background-color: #2E3840
+}
+.navigation a.n:hover{
+    background-color: #2E3840;
+    color: #ececec;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 70px;
+    height: 50px;
+    margin-top: 40PX;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
 .navigation a li{
     display: table-cell;
     vertical-align: middle;
@@ -98,6 +134,16 @@ body{
 
     font-size: 30px;
 }
+@keyframes leftright-txt {
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
 .Mata3em{
     font-size: 100px;
     font-weight: 600;
@@ -105,6 +151,12 @@ body{
     width: 430px;
     margin-left: 15%;
     margin-top: 40px;
+    animation: leftright-txt 0.7s ease;
+    animation-fill-mode: forwards;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation-delay: 0.6s;
+
 }
 .info{
     height: auto;
@@ -115,11 +167,26 @@ body{
     font-weight: 400;
     font-size: 24px;
     margin-bottom: 10vw;
+    animation: leftright-txt 0.7s ease;
+    animation-fill-mode: forwards;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation-delay: 0.6s;
+
 }
 .footer{
     margin-top: auto;
     background-color: #2E3840;
     padding: 60px 0;
+    animation: bottop 0.7s ease;
+}
+@keyframes bottop {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
 }
 .list{
     margin: 40px auto;
@@ -130,6 +197,7 @@ body{
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
+    animation: leftright-txt 1s ease;
 }
 .list thead tr{
     background-color: #4E6E81;
@@ -157,6 +225,23 @@ body{
     padding: 10px 15px;
 
 }
+
+.list tbody tr:nth-of-type(even){
+    background-color: #ECECEC;
+}
+.list tbody tr:hover td{
+    background-color: #2E3840;
+    color: #ececec;
+}
+.list tbody tr:hover .maps{
+    color: #ececec;
+}
+.list tbody tr:hover a:link{
+    color: #ececec;
+}
+.list tbody tr:hover a:visited{
+    color: #ececec;
+}
 .list tbody td{
 
     text-align: center;
@@ -169,10 +254,9 @@ body{
 .list tbody tr{
     background-color: #FDFAFA;
     border-bottom: 1px solid #dddddd;
+    
 }
-.list tbody tr:nth-of-type(even){
-    background-color: #ECECEC;
-}
+
 .list tbody td:first-child{
     text-align: left;
 }
@@ -193,6 +277,7 @@ td a:visited{
     color: #4E6E81;
     text-decoration: none;
 }
+
 .maps{
     background: none;
     border: none;
@@ -203,27 +288,12 @@ td a:visited{
     font-family: 'Roboto';
     height: auto;
     cursor: pointer;
+    width: 100%;
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.navigation a:last-child:hover{
-    background-color: #2E3840
-}
-.navigation a.n:hover{
-    background-color: #2E3840;
-    color: #ececec;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 70px;
-    height: 50px;
-    margin-top: 40PX;
-    margin-left: 5px;
-    margin-right: 5px;
-
 }
 .module{
     display: none;
@@ -292,7 +362,7 @@ td a:visited{
     }
     .navigation a li{
         
-        font-size: 4vw;
+        font-size: 4.3vw;
     }
     .navigation a{
         margin-left: 2vw;
@@ -300,8 +370,8 @@ td a:visited{
 
     }
     .navigation{
-        margin-left: 5vw;
-        float: left;
+        justify-content: center;
+        width: 100%;
 
     }
     .navigation a:last-child{
